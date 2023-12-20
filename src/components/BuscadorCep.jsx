@@ -25,7 +25,7 @@ const BuscadorCep = () => {
     <div className="container">
         <label className="input">
             CEP:
-            <input className="result-input" type="text" value={cep} onChange={(e) => setCep(e.target.value)} onKeyDown={handleKeyDown} />
+            <input className="result-input" type="text" value={cep} onChange={(e) => setCep(e.target.value)} onKeyDown={handleKeyDown}/>
         </label>
         <button className="button" onClick={BuscarCep}>Buscar CEP</button>
 
