@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios'
+import "./BuscadorCep.css"
 
 const BuscadorCep = () => {
     const [cep, setCep] = useState('')
@@ -12,26 +13,24 @@ const BuscadorCep = () => {
             console.log('Error ao buscar o Cep', error)
             setEndereco(null)
         }
-        
-        
     }
     
   return (
-    <div>
-        <label>
+    <div className="container">
+        <label className="input">
             CEP:
-            <input type="text" value={cep} onChange={(e) => setCep(e.target.value)} />
+            <input className="result-input" type="text" value={cep} onChange={(e) => setCep(e.target.value)} />
         </label>
-        <button onClick={BuscarCep}>Buscar CEP</button>
+        <button className="button" onClick={BuscarCep}>Buscar CEP</button>
 
         {endereco && (
-            <div>
-                <h2>Resultado:</h2>
-                <p>CEP: {endereco.cep}</p>
-                <p>DDD: {endereco.ddd}</p>
-                <p>Cidade: {endereco.cidade}</p>
-                <p>Bairro: {endereco.localidade}</p>
-                <p>Estado: {endereco.uf}</p>
+            <div className="result-container">
+                <h2 className="result-title">Resultado:</h2>
+                <p className="result-item">CEP: {endereco.cep}</p>
+                <p className="result-item">DDD: {endereco.ddd}</p>
+                <p className="result-item">Cidade: {endereco.cidade}</p>
+                <p className="result-item">Bairro: {endereco.localidade}</p>
+                <p className="result-item">Estado: {endereco.uf}</p>
             </div>
         )}
     </div>
